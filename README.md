@@ -1,3 +1,4 @@
+<img width="1880" height="957" alt="Screenshot 2026-08-23 175900" src="https://github.com/user-attachments/assets/619d5fa9-d6fe-4811-a968-2d6ce87109c4" />
 # TeamGraph
 
 A small internal tool for engineering orgs: given the people, skills, and
@@ -187,3 +188,9 @@ validated against the real instance during the demo/walkthrough.
 _Add screenshots of the Explorer, Directory, Projects, and Skill Path views
 here before submitting — run the app locally or against the deployed URL,
 seed the database, and capture each view._
+<img width="1880" height="957" alt="Screenshot 2026-08-23 175900" src="https://github.com/user-attachments/assets/2876b49a-4b2c-489d-9a1a-41a55d65b6dc" />
+<img width="1905" height="922" alt="Screenshot 2026-08-23 175911" src="https://github.com/user-attachments/assets/3a803a16-3d7f-494a-b624-3d26a809b379" />
+<img width="1790" height="841" alt="Screenshot 2026-08-23 175924" src="https://github.com/user-attachments/assets/5721ac66-24c0-4b6f-bb27-49ac0b70d8c5" />
+<img width="1598" height="904" alt="Screenshot 2026-08-23 175944" src="https://github.com/user-attachments/assets/31432014-ca1b-497f-9035-62f3edb1c13c" />
+
+
