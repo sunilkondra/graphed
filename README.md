@@ -180,7 +180,7 @@ validated against the real instance during the demo/walkthrough.
 
 ## Demo
 
-- **Deployed URL:** _add your hosted link here before submitting_
+- **Deployed URL:https://graphed.onrender.com
 - **Screen recording:** _add a link (Loom/YouTube unlisted/etc.) here_
 
 ## Screenshots
