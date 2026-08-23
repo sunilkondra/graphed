@@ -181,7 +181,7 @@ validated against the real instance during the demo/walkthrough.
 ## Demo
 
 - **Deployed URL:https://graphed.onrender.com
-- **Screen recording:** _add a link (Loom/YouTube unlisted/etc.) here_
+- **Screen recording:https://drive.google.com/file/d/1TAQGb8L6SKdflzUaftJzswuBeLHhlkDY/view?usp=sharing
 
 ## Screenshots
 
