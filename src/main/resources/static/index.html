@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TeamGraph — CognoDB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.9/standalone/umd/vis-network.min.js"></script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark">◈</span>
+      <div class="brand-text">
+        <span class="brand-name">TeamGraph</span>
+        <span class="brand-sub">on CognoDB</span>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-item is-active" data-view="explorer">
+        <span class="nav-glyph">⌁</span> Explorer
+      </button>
+      <button class="nav-item" data-view="directory">
+        <span class="nav-glyph">≡</span> Directory
+      </button>
+      <button class="nav-item" data-view="projects">
+        <span class="nav-glyph">▣</span> Projects
+      </button>
+      <button class="nav-item" data-view="path">
+        <span class="nav-glyph">↝</span> Skill Path
+      </button>
+    </nav>
+
+    <div class="legend">
+      <div class="legend-title">Node types</div>
+      <div class="legend-row"><span class="dot dot-person"></span> Person</div>
+      <div class="legend-row"><span class="dot dot-skill"></span> Skill</div>
+      <div class="legend-row"><span class="dot dot-project"></span> Project</div>
+    </div>
+
+    <button id="seedBtn" class="seed-btn">Seed sample data</button>
+    <div id="statusLine" class="status-line"></div>
+  </aside>
+
+  <main class="main">
+
+    <!-- EXPLORER VIEW -->
+    <section id="view-explorer" class="view is-active">
+      <header class="view-header">
+        <div>
+          <h1>Explorer</h1>
+          <p class="subhead">Pick a person to see who else shares their skills, direct and multi-hop.</p>
+        </div>
+        <div class="search-row">
+          <select id="personSelect" class="select"></select>
+          <button id="loadCollabBtn" class="btn-primary">Trace connections</button>
+        </div>
+      </header>
+
+      <div class="explorer-grid">
+        <div id="graphCanvas" class="graph-canvas">
+          <div class="canvas-empty" id="canvasEmpty">
+            <span class="canvas-empty-glyph">◈</span>
+            <p>Select a person above, then "Trace connections" to render their graph neighborhood.</p>
+          </div>
+        </div>
+
+        <div class="detail-panel">
+          <h2>Direct collaborators <span class="hint">(2-hop, shared skill)</span></h2>
+          <div id="collabList" class="scroll-list">
+            <p class="empty-note">Nothing loaded yet.</p>
+          </div>
+
+          <h2>Project network <span class="hint">(multi-hop, via project requirements)</span></h2>
+          <div id="networkList" class="scroll-list">
+            <p class="empty-note">Nothing loaded yet.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIRECTORY VIEW -->
+    <section id="view-directory" class="view">
+      <header class="view-header">
+        <div>
+          <h1>Directory</h1>
+          <p class="subhead">Everyone in the graph, with skill counts.</p>
+        </div>
+      </header>
+      <div id="directoryGrid" class="card-grid">
+        <p class="empty-note">Loading…</p>
+      </div>
+    </section>
+
+    <!-- PROJECTS VIEW -->
+    <section id="view-projects" class="view">
+      <header class="view-header">
+        <div>
+          <h1>Projects</h1>
+          <p class="subhead">Team composition, skill gaps, and who to pull in next.</p>
+        </div>
+      </header>
+      <div class="projects-layout">
+        <div id="projectList" class="project-list">
+          <p class="empty-note">Loading…</p>
+        </div>
+        <div class="detail-panel">
+          <h2>Skill gap <span class="hint">(required, nobody on team has it)</span></h2>
+          <div id="gapList" class="scroll-list">
+            <p class="empty-note">Select a project.</p>
+          </div>
+          <h2>Suggested additions <span class="hint">(ranked by matching skills)</span></h2>
+          <div id="suggestList" class="scroll-list">
+            <p class="empty-note">Select a project.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILL PATH VIEW -->
+    <section id="view-path" class="view">
+      <header class="view-header">
+        <div>
+          <h1>Skill path</h1>
+          <p class="subhead">Shortest chain of related skills between any two skills — a variable-length graph traversal that's awkward to express as recursive SQL joins.</p>
+        </div>
+        <div class="search-row">
+          <select id="fromSkillSelect" class="select"></select>
+          <span class="arrow">→</span>
+          <select id="toSkillSelect" class="select"></select>
+          <button id="findPathBtn" class="btn-primary">Find path</button>
+        </div>
+      </header>
+      <div id="pathResult" class="path-result">
+        <p class="empty-note">Choose two skills to find the shortest learning path between them.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
