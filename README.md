@@ -1,4 +1,4 @@
-<img width="1880" height="957" alt="Screenshot 2026-08-23 175900" src="https://github.com/user-attachments/assets/619d5fa9-d6fe-4811-a968-2d6ce87109c4" />
+
 # TeamGraph
 
 A small internal tool for engineering orgs: given the people, skills, and
